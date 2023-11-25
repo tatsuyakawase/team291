@@ -14,9 +14,15 @@
                     <h3 class="card-title">商品一覧</h3>
                     <div class="card-tools">
                         <div class="input-group input-group-sm">
-                            <div class="input-group-append">
-                                <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
-                            </div>
+                                <div>   
+                                    <form action="/items" method="get">
+                                        <input type="text" name="key">
+                                        <input type="submit" value="検索">
+                                    </form>
+                                </div>
+                                <div class="input-group-append">
+                                    <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -28,6 +34,7 @@
                                 <th>名前</th>
                                 <th>種別</th>
                                 <th>詳細</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,6 +44,17 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->detail }}</td>
+                                    <td>
+                                        <a class="btn btn-primary" href="{{ url('items/edit/'.$item->id) }}">編集</a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ url('items/delete') }}" method="POST"
+                                            onsubmit="return confirm('削除します。よろしいですか？');">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $item->id }}">
+                                            <input type="submit" value="削除" class="btn btn-danger">
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
