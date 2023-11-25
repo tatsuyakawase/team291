@@ -42,7 +42,30 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->type }}</td>
+                                    <td>@switch ($item->type)
+                                            @case(1)
+                                                <span>野菜</span>
+                                                @break
+                                            @case(2)
+                                                <span>果物</span>
+                                                @break
+                                            @case(3)
+                                                <span>お肉</span>
+                                                @break
+                                            @case(4)
+                                                <span>魚</span>
+                                                @break
+                                            @case(5)
+                                                <span>冷凍食品</span>
+                                                @break
+                                            @case(6)
+                                                <span>米</span>
+                                                @break
+                                            @case(7)
+                                                <span>パン</span>
+                                                @break
+                                        @endswitch
+                                    </td>
                                     <td>{{ $item->detail }}</td>
                                     <td>
                                         <a class="btn btn-primary" href="{{ url('items/edit/'.$item->id) }}">編集</a>

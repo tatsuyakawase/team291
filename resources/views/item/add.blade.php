@@ -29,8 +29,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="type">種別</label>
-                            <input type="text" class="form-control" id="type" name="type" placeholder="種別">
+                            <label for="type">商品種別</label>
+                            <select type="text" class="form-control" id="type" name="type" placeholder="種別">
+                                        <option value="">選択してください</option>
+                                        <option value="1" @if('1'=== old('type')) selected @endif>野菜</option>
+                                        <option value="2" @if('2'=== old('type')) selected @endif>果物</option>
+                                        <option value="3" @if('3'=== old('type')) selected @endif>お肉</option>
+                                        <option value="4" @if('4'=== old('type')) selected @endif>魚</option>
+                                        <option value="5" @if('5'=== old('type')) selected @endif>冷凍食品</option>
+                                        <option value="6" @if('6'=== old('type')) selected @endif>米</option>
+                                        <option value="7" @if('7'=== old('type')) selected @endif>パン</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
