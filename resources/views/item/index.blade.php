@@ -20,9 +20,11 @@
                                         <input type="submit" value="検索">
                                     </form>
                                 </div>
+                                @can('admin')
                                 <div class="input-group-append">
                                     <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
                                 </div>
+                                @endcan
                         </div>
                     </div>
                 </div>
@@ -67,6 +69,7 @@
                                         @endswitch
                                     </td>
                                     <td>{{ $item->detail }}</td>
+                                    @can('admin')
                                     <td>
                                         <a class="btn btn-primary" href="{{ url('items/edit/'.$item->id) }}">編集</a>
                                     </td>
@@ -78,6 +81,7 @@
                                             <input type="submit" value="削除" class="btn btn-danger">
                                         </form>
                                     </td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>
